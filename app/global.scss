@@ -40,3 +40,30 @@ body {
         }
     }
 }
+
+.welcome-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        font-size: 4rem;
+        text-decoration: underline;
+    }
+
+    &__text {
+        border: .5rem solid black;
+        border-radius: 1rem;
+        font-size: 2.5rem;
+        padding: 3rem 3rem;
+        background-color: rgb(64, 64, 64);
+        color: white;
+    }
+
+    &__mission {
+        width: 70%;
+        font-size: 1.45rem;
+        text-align: center;
+    }
+}
