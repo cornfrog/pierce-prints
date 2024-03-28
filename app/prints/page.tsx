@@ -1,6 +1,6 @@
 export default function Products() {
     return (
-      <h1>Products Page</h1>
+      <h1>Prints Page</h1>
     );
   }
   

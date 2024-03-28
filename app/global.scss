@@ -1,58 +1,42 @@
 @import url('https://fonts.cdnfonts.com/css/rem');
+@import url('https://fonts.cdnfonts.com/css/playfair-display-sc');
 
 body {
     font-family: 'REM', sans-serif;
+    background-color: rgb(249, 249, 249);
 }
 
-.site-header {
+.top-bar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5rem;
-    &__text {
-        font-size: 3rem;
-        background-color: rgb(28, 21, 255);
-        color: white;
-        padding: 0 4rem;
-        border: .5rem solid rgb(13, 0, 255);
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 4rem;
+
+    .site-header {
+        margin-left: 2rem;
+        padding: 0 1.5rem;
+        font-size: 4rem;
+        font-family: 'Playfair Display SC', sans-serif;
+        border: .5rem solid black;
         border-radius: 1rem;
-        user-select: none;
-    }
-    &__login-btn {
-        font-size: 1.35rem;
-        padding: .5rem 1.25rem;
-        border-radius: 1rem;
-        background-color: transparent;
-        border-width: .45rem;
-        border-color: rgb(13, 0, 255);
-        background-color: transparent;
-        transition: background-color .25s ease-in-out;
-        font-family: 'REM', sans-serif;
-    }
-    &__login-btn:hover {
         cursor: pointer;
-        background-color: rgb(0, 0, 255);
-        color: white;
-    }
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 1.5rem;
-    &__link {
-        padding: .25rem 1rem;
-        color: black;
-        text-decoration: none;
-        background-color: transparent;
-        border: .35rem solid rgb(13, 0, 255);
-        border-radius: 1rem;
-        transition: background-color .25s ease-in-out;
-    }
-    &__link:hover {
-        background-color: rgb(0, 0, 255);
-        color: white;
     }
 
+    .navbar {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: baseline;
+        font-size: 2.25rem;
+        gap: 2.5rem;
+
+        &__link {
+            color: rgb(130, 130, 130);
+            transition: color, font-size .35s ease-in-out;
+        }
+
+        &__link:hover {
+            color: black;
+            font-size: 2.5rem;
+        }
+    }
 }

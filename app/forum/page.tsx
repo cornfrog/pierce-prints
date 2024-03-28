@@ -1,6 +1,6 @@
 export default function Community() {
     return (
-      <h1>Community Page</h1>
+      <h1>Forum Page</h1>
     );
   }
   
