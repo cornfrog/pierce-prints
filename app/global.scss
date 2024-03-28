@@ -2,7 +2,6 @@
 
 body {
     font-family: 'REM', sans-serif;
-    background-color: rgb(230, 230, 230);
 }
 
 .site-header {
@@ -26,13 +25,34 @@ body {
         background-color: transparent;
         border-width: .45rem;
         border-color: rgb(13, 0, 255);
-        background-color: rgb(0, 0, 131);
-        transition: background-color .5s ease-in-out;
+        background-color: transparent;
+        transition: background-color .25s ease-in-out;
         font-family: 'REM', sans-serif;
-        color: white;
     }
     &__login-btn:hover {
         cursor: pointer;
         background-color: rgb(0, 0, 255);
+        color: white;
     }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.5rem;
+    &__link {
+        padding: .25rem 1rem;
+        color: black;
+        text-decoration: none;
+        background-color: transparent;
+        border: .35rem solid rgb(13, 0, 255);
+        border-radius: 1rem;
+        transition: background-color .25s ease-in-out;
+    }
+    &__link:hover {
+        background-color: rgb(0, 0, 255);
+        color: white;
+    }
+
 }
