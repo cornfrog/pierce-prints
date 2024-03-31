@@ -1,3 +1,5 @@
+import CatagoryList from "./components/CatagoryList";
+
 export default function Home() {
   return (
     <>
@@ -20,6 +22,7 @@ export default function Home() {
         <h1 className="separator-container__text">Categories</h1>        
         <div className="separator-container__bar"></div>
       </div>
+      <CatagoryList />
     </> 
   );
 }

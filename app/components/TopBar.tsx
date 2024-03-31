@@ -12,7 +12,7 @@ export default function TopBar() {
             <h1 className="site-header" onClick={goToHome}>Pierce Prints</h1>
             <div className="navbar">
                 <Link href="/" className="navbar__link">Home</Link>
-                <Link href="/prints" className="navbar__link">Prints</Link>
+                <Link href="/catagories" className="navbar__link">Catagories</Link>
                 <Link href="/contact" className="navbar__link">Contact</Link>
                 <Link href="/about" className="navbar__link">About</Link>
             </div>
