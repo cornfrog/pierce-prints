@@ -1,20 +1,16 @@
 "use client"
 
 import { useEffect, useState } from "react";
-
-type Category = {
-    id?: number,
-    name: string,
-    route: string,
-    createdAt?: Date,
-    updatedAt?: Date
-}
+import { Category } from "@/app/types";
 
 export default function CategoryPage({params}: { params: { category: string }}) {
 
     const [category, setCategory] = useState<Category>({
+        id: 0,
         name: "",
-        route: ""
+        route: "",
+        createdAt: new Date(),
+        updatedAt: new Date()
     });
     const categoryRoute = params.category;
 

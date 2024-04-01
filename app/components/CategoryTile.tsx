@@ -1,16 +1,7 @@
 import Link from "next/link";
+import { CategoryTileProps } from "../types";
 
-type props = {
-    category: {
-        id: number,
-        name: string,
-        route: string,
-        createdAt: Date,
-        updatedAt: Date
-    }
-}
-
-export default function CategoryTile({ category }: props) {
+export default function CategoryTile({ category }: CategoryTileProps) {
     return (
         <Link href={`/categories/${category.route}`}>{category.name}</Link>
     );

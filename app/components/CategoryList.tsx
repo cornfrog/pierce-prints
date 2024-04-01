@@ -2,14 +2,7 @@
 
 import { useEffect, useState } from "react";
 import CategoryTile from "./CategoryTile";
-
-type Category = {
-    id: number,
-    name: string,
-    route: string,
-    createdAt: Date,
-    updatedAt: Date
-}
+import { Category } from "../types";
 
 export default function CategoryList() {
 
