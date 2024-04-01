@@ -19,10 +19,8 @@ export default function CategoryPage({params}: { params: { category: string }}) 
     const categoryRoute = params.category;
 
     async function getCategoryDetails() {
-        console.log("fetching data");
         const response = await fetch(`/api/categories/${categoryRoute}`);
         const body = await response.json();
-        console.log(body);
         setCategory(body.category);
     }
 
