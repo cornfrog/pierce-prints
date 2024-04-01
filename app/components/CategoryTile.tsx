@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 type props = {
-    catagory: {
+    category: {
         id: number,
         name: string,
         route: string,
@@ -10,8 +10,8 @@ type props = {
     }
 }
 
-export default function CatagoryTile({ catagory }: props) {
+export default function CategoryTile({ category }: props) {
     return (
-        <Link href={`/catagories/${catagory.route}`}>{catagory.name}</Link>
+        <Link href={`/categories/${category.route}`}>{category.name}</Link>
     );
 }
