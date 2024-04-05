@@ -61,7 +61,7 @@ export default function Contact() {
       <h1 className="contact-header">Contact Us</h1>
       <p className="contact-text">
         Can&apos;t find what you&apos;re looking for or have an idea for a print?
-        Fill out our contact form and we will reach back as soon as we can.
+        Fill out this contact form and I will reach back as soon as we can.
       </p>
       <form onSubmit={submitMessage} className="contact-form">
         <label htmlFor="contact-name" className="contact-label">

@@ -17,6 +17,10 @@ export default function TopBar({ userID }: LoggedInUser) {
         return window.location.href = "/my-profile";
     }
 
+    function goToCart() {
+        return window.location.href = "/my-cart";
+    }
+
     const router = useRouter();
     function handleLogOut() {
         router.push("/");
@@ -25,6 +29,7 @@ export default function TopBar({ userID }: LoggedInUser) {
     const signedInItems = (
         <div className="logged-in-buttons">
             <button className="profile-button" onClick={goToProfile}>My Profile</button>
+            <button className="cart-button" onClick={goToCart}>My Cart</button>
             <SignOutButton signOutCallback={handleLogOut}>
                 <button className="sign-out">Log Out</button>
             </SignOutButton>
