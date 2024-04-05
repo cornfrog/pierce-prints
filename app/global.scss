@@ -40,6 +40,43 @@ body {
             font-size: 2.5rem;
         }
     }
+    
+    .sign-in {
+        border: none;
+        background-color: transparent;
+        text-decoration: underline;
+        font-size: 2rem;
+        font-family: 'REM', sans-serif;
+        color: rgb(130, 130, 130);
+        transition: font-size .35s ease-in-out;
+    }
+
+    .sign-in:hover {
+        cursor: pointer;
+        color: black;
+        font-size: 2.35rem;
+    }
+
+    .logged-in-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        button {
+            border: none;
+            background-color: transparent;
+            text-decoration: underline;
+            font-size: 2rem;
+            font-family: 'REM', sans-serif;
+            color: rgb(130, 130, 130);
+            transition: font-size .35s ease-in-out;
+        }
+        button:hover {
+            cursor: pointer;
+            color: black;
+            font-size: 2.35rem;
+        }
+    }
 }
 
 .welcome-banner {

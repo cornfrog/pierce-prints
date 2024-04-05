@@ -24,17 +24,17 @@ export default function TopBar({ userID }: LoggedInUser) {
 
     const signedInItems = (
         <div className="logged-in-buttons">
-        <button className="profile-button" onClick={goToProfile}>My Profile</button>
-        <SignOutButton signOutCallback={handleLogOut}>
-            <button className="sign-out">Log Out</button>
-        </SignOutButton>
+            <button className="profile-button" onClick={goToProfile}>My Profile</button>
+            <SignOutButton signOutCallback={handleLogOut}>
+                <button className="sign-out">Log Out</button>
+            </SignOutButton>
         </div>
     );
 
 
     const signedOutButton = (
         <SignInButton>
-            <button className="sign-out">Sign In</button>
+            <button className="sign-in">Sign In</button>
         </SignInButton>
     );
 
