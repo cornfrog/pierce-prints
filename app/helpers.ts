@@ -8,3 +8,12 @@ export function parseZodError(zodErrors: any[]){
     });
     return errorMessages;
 }
+
+export function serializeClerkUser(clerkUserData: any) {
+    let clerkUser: any = {};
+    clerkUser.firstName = clerkUserData.firstName;
+    clerkUser.lastName = clerkUserData.lastName;
+    clerkUser.email = clerkUserData.emailAddresses[0].emailAddress;
+
+    return clerkUser;
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./global.scss";
 import TopBar from "./components/TopBar";
 import Footer from "./components/Footer";
+import { ClerkProvider, auth } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Print Shop",
@@ -13,13 +14,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const {userId, getToken} = auth();
+
   return (
-    <html lang="en">
-      <body>
-        <TopBar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <TopBar userID={userId}/>
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
