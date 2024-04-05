@@ -16,7 +16,7 @@ export default function CategoryList() {
 
     useEffect(() => {
         fetchCatagories();
-    }, []);
+    }, [categoryList]);
 
     const categoryTiles = categoryList.map((category) => {
         return <li key={category.id} className="category-tile"><CategoryTile category={category}/></li>

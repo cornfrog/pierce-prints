@@ -22,7 +22,7 @@ export default function CategoryPage({params}: { params: { category: string }}) 
 
     useEffect(() => {
         getCategoryDetails();
-    }, []);
+    }, [category]);
 
     return (
         <h1>This is the {category.name} page!</h1>
