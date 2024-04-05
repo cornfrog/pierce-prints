@@ -2,6 +2,7 @@
 @import url('https://fonts.cdnfonts.com/css/playfair-display-sc');
 
 body {
+    margin: 0;
     font-family: 'REM', sans-serif;
     background-color: rgb(249, 249, 249);
 }
@@ -209,5 +210,18 @@ body {
     border-radius: 1rem;
     p {
         width: 80%;
+    }
+}
+
+.footer {
+    margin-top: 2rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 1.15rem;
+    border-top: .25rem solid rgb(64, 64, 64);
+    h1 {
+        margin: 0;
+        padding: .25rem 0;
     }
 }

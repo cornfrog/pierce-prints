@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./global.scss";
 import TopBar from "./components/TopBar";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Print Shop",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <TopBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
