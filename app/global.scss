@@ -188,3 +188,26 @@ body {
         cursor: pointer;
     }
 }
+
+.about-title {
+    text-align: center;
+    font-size: 3rem;
+    text-decoration: underline;
+}
+
+.about-message {
+    padding: 1.25rem 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem;
+    text-align: center;
+    width: 50%;
+    border: .5rem solid black;
+    border-radius: 1rem;
+    p {
+        width: 80%;
+    }
+}
