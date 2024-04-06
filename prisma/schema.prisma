@@ -14,13 +14,24 @@ model Category {
   route     String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Item      Item[]
 }
 
 model Message {
-  id          Int      @id @default(autoincrement())
-  senderName  String
-  senderEmail String
+  id            Int      @id @default(autoincrement())
+  senderName    String
+  senderEmail   String
   senderMessage String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Item {
+  id         Int      @id @default(autoincrement())
+  name       String
+  category   Category @relation(fields: [categoryId], references: [id])
+  price      Decimal  @db.Money
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  categoryId Int
 }

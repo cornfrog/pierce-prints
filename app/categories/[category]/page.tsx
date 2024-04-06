@@ -1,30 +1,28 @@
-"use client"
-
-import { useEffect, useState } from "react";
 import { Category } from "@/app/types";
+import prisma from "@/lib/prisma";
+import ItemList from "@/app/components/ItemList";
 
-export default function CategoryPage({params}: { params: { category: string }}) {
-
-    const [category, setCategory] = useState<Category>({
-        id: 0,
-        name: "",
-        route: "",
-        createdAt: new Date(),
-        updatedAt: new Date()
-    });
+export default async function CategoryPage({ params }: { params: { category: string } }) {
     const categoryRoute = params.category;
 
-    async function getCategoryDetails() {
-        const response = await fetch(`/api/categories/${categoryRoute}`);
-        const body = await response.json();
-        setCategory(body.category);
+    let categoryName;
+    let categoryId;
+    try {
+        const category = await prisma.category.findFirst({
+            where: {
+                route: categoryRoute
+            }
+        });
+        categoryName = category?.name;
+        categoryId = category?.id;
+    } catch (error) {
+        console.log(error);
     }
 
-    useEffect(() => {
-        getCategoryDetails();
-    }, [category]);
-
     return (
-        <h1>This is the {category.name} page!</h1>
+        <>
+            <h1 className="category-title">{categoryName}</h1>
+            <ItemList categoryId={categoryId} />
+        </>
     );
 }

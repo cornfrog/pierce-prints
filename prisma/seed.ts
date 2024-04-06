@@ -9,15 +9,19 @@ async function main() {
         data: [
             {
                 name: "Airsoft",
-                route: "arisoft"
+                route: "airsoft"
             },
             {
-                name: "Desk Ornimates",
-                route: "desk-ornimates"
+                name: "Desk Ornament",
+                route: "desk-ornament"
             },
             {
                 name: "Educational",
                 route: "educational"
+            },
+            {
+                name: "Pet Toys",
+                route: "pet-toys"
             }
         ]
     });

@@ -12,5 +12,6 @@ export async function GET(request: Request, { params }: CategoryRoute) {
             route: params.category
         }
     });
+    console.log(category);
     return Response.json({ category });
 }

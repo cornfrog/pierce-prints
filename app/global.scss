@@ -262,3 +262,42 @@ body {
         padding: .25rem 0;
     }
 }
+
+.category-title {
+    text-align: center;
+    font-size: 3.5rem;
+    text-decoration: underline;
+}
+
+.category-items {
+    width: 85vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    .item-tile {
+        margin: 1rem auto;
+        padding: .5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: .25rem solid black;
+        border-radius: 1rem;
+        width: fit-content;
+        .item-name{
+            margin-bottom: 0;
+            font-size: 1.5rem;
+        }
+        .item-price{
+            margin-top: .5rem;
+            font-size: 1.25rem;
+        }
+    }
+
+    .item-tile:hover {
+        cursor: pointer;
+        .item-name {
+            text-decoration: underline;
+        }
+    }
+}
