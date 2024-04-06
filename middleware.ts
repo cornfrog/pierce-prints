@@ -9,7 +9,8 @@ export default authMiddleware({
     "/api/categories",
     "/api/message",
     "/categories/:category",
-    "/api/categories/:category"
+    "/api/categories/:category",
+    "/categories/:category/:item"
   ]
 });
 
@@ -18,6 +19,7 @@ export const config = {
     "/((?!.+.[w]+$|_next).*)", 
     "/", "/(api|trpc)(.*)", 
     "/categories/:category",
-    "/api/categories/:category"
+    "/api/categories/:category",
+    "/categories/:category/:item"
   ],
 };
