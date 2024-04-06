@@ -7,6 +7,9 @@ export default async function ItemPage({ params }: any) {
         itemDetails = await prisma.item.findFirst({
             where: {
                 id: parseInt(params.item)
+            },
+            include: {
+                category: true
             }
         });
     } catch (error) {
@@ -20,9 +23,10 @@ export default async function ItemPage({ params }: any) {
 
     return (
         <>
-            <h1>item show page</h1>
-            <p>This is: {itemDetails.name}</p>
+            <a href={`/categories/${itemDetails.category.route}`}>{itemDetails.category.name}</a>
+            <h1>{itemDetails.name}</h1>
             <p>Price: {formattedPrice}</p>
+            <p>Description: {itemDetails.description}</p>
         </>
     );
 }
