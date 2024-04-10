@@ -24,7 +24,7 @@ export default function ItemTile({itemName, itemPrice, itemId, itemPicture}: pro
 
     return (
         <div className="item-tile" onClick={goToShowPage}>
-            <img src={itemPicture} alt="item-picture" />
+            <img src={itemPicture} alt="item-picture" className="item-picture"/>
             <p className="item-name">{itemName}</p>
             <p className="item-price">Price: {formattedPrice}</p>
         </div>
