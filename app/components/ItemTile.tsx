@@ -8,7 +8,7 @@ type props = {
     itemPrice: number,
 }
 
-export default function ItemTile({itemName, itemPrice, itemId}: props) {
+export default function ItemTile({itemName, itemPrice, itemId,}: props) {
 
 
     const formattedPrice = itemPrice.toLocaleString('en-US', {
