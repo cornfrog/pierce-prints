@@ -6,6 +6,6 @@ export default function AddItemToCart() {
     }
 
     return (
-        <button onClick={addItemToCart}>Add to Cart</button>
+        <button onClick={addItemToCart} className="add-to-cart">+ Add to Cart</button>
     );
 }

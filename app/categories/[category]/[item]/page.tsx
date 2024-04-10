@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs";
 
 export default async function ItemPage({ params }: any) {
 
-    const {userId, getToken} = auth();
+    const { userId, getToken } = auth();
 
     let itemDetails: any;
     try {
@@ -26,19 +26,21 @@ export default async function ItemPage({ params }: any) {
     });
 
     const signedOutItems = (
-        <div>
-            <p>Sign in to add this to your cart.</p>
-        </div>
+        <p className="signed-out">Sign in to add this to your cart.</p>
     );
 
     return (
-        <>
-            <a href={`/categories/${itemDetails.category.route}`}>{itemDetails.category.name}</a>
-            <h1>{itemDetails.name}</h1>
-            <p>Price: {formattedPrice}</p>
-            <p>Description: {itemDetails.description}</p>
-            <img src={itemDetails.imgSrc} alt="pic" />
-            {userId ? <AddItemToCart /> : signedOutItems}
-        </>
+        <div className="item-show">
+            <a href={`/categories/${itemDetails.category.route}`} className="back-link">&lt;&lt;&lt; {itemDetails.category.name}</a>
+            <h1 className="item-name">{itemDetails.name}</h1>
+            <div className="item-details">
+                <img src={itemDetails.imgSrc} alt="pic" className="item-picture" />
+                <div className="item-price-and-desc">
+                    <p className="item-price">Price: ${formattedPrice}</p>
+                    <p className="item-description">Description: {itemDetails.description}</p>
+                    {userId ? <AddItemToCart /> : signedOutItems}
+                </div>
+            </div>
+        </div>
     );
 }

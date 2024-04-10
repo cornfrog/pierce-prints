@@ -284,6 +284,11 @@ body {
         border: .25rem solid black;
         border-radius: 1rem;
         width: fit-content;
+        .item-picture { 
+            height: 200px;
+            width: 200px;
+            border-radius: 1rem;
+        }
         .item-name{
             margin-bottom: 0;
             font-size: 1.5rem;
@@ -299,5 +304,60 @@ body {
         .item-name {
             text-decoration: underline;
         }
+    }
+}
+
+.item-show {
+    .back-link {
+        color: black;
+        font-size: 2rem;
+        margin-left: 5rem;
+    }
+    .item-name {
+        font-size: 2.5rem;
+        text-align: center;
+        text-decoration: underline;
+    }
+    .item-details {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        font-size: 1.5rem;
+        .item-picture {
+            height: 600px;
+            width: 400px;
+            border: .25rem solid gray;
+            border-radius: 1rem;
+        }
+        .item-price-and-desc {
+            width: fit-content;
+            .item-price {
+                text-align: center;
+            }
+            .item-description {
+                width: 35vw;
+            }
+            .signed-out {
+                text-align: center;
+            }
+            .add-to-cart {
+                display: block;
+                margin: 0 auto;
+                background-color: black;
+                border-radius: 1rem;
+                border: none;
+                padding: .5rem 1rem;
+                font-size: 2rem;
+                color: white;
+                transition: background-color .25s ease-in-out;
+            }
+            .add-to-cart:hover {
+                background-color: gray;
+                color: black;
+                cursor: pointer;
+            }
+        }
+
     }
 }
