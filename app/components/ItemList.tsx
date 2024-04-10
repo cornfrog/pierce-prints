@@ -27,6 +27,7 @@ export default async function ItemList({ categoryId }: props) {
             itemId={item.id}
             itemName={item.name}
             itemPrice={priceAsFloat}
+            itemPicture={item.imgSrc}
         />
     });
 
