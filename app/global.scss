@@ -394,4 +394,12 @@ body {
             border: .25rem solid black;
         }
     }
+
+    .remove-item-btn {
+        background-color: transparent;
+        border: none;
+    }
+    .remove-item-btn:hover {
+        cursor: pointer;
+    }
 }
