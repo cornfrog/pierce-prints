@@ -29,6 +29,7 @@ export default async function ItemPage({ params }: any) {
         <p className="signed-out">Sign in to add this to your cart.</p>
     );
 
+
     return (
         <div className="item-show">
             <a href={`/categories/${itemDetails.category.route}`} className="back-link">&lt;&lt;&lt; {itemDetails.category.name}</a>
@@ -38,7 +39,13 @@ export default async function ItemPage({ params }: any) {
                 <div className="item-price-and-desc">
                     <p className="item-price">Price: ${formattedPrice}</p>
                     <p className="item-description">Description: {itemDetails.description}</p>
-                    {userId ? <AddItemToCart /> : signedOutItems}
+                    {userId ?
+                        <AddItemToCart
+                            userId={userId.toString()}
+                            itemId={params.item}
+                         /> :
+                        signedOutItems
+                    }
                 </div>
             </div>
         </div>

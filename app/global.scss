@@ -361,3 +361,37 @@ body {
 
     }
 }
+
+.cart-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .page-title {
+        text-decoration: underline;
+    }
+
+    .signed-out-msg {
+        font-size: 3rem;
+        background-color: black;
+        color: white;
+        padding: .5rem 1rem;
+    }
+
+    .cart-item {
+        border: .25rem solid gray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 25vw;
+        padding: 1rem;
+        border-radius: 1rem;
+        .item-img {
+            height: 200px;
+            width: 200px;
+            border: .25rem solid black;
+        }
+    }
+}
