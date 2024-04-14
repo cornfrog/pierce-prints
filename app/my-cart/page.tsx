@@ -1,5 +1,34 @@
-export default function MyCart() {
+import { auth } from "@clerk/nextjs";
+import prisma from "@/lib/prisma";
+import UserCart from "../components/UserCart";
+
+export default async function MyCart() {
+
+    const { userId, getToken } = auth();
+
+    const userCart = await prisma.cart.findMany({
+        where: {
+            user_id: userId?.toString()
+        },
+        include: {
+            items: true
+        }
+    })
+
+    const noCartItems = (
+        <p className="signed-out-msg">No Items in Cart</p>
+    );
+
+    const cartItems = (
+        <>
+            <UserCart userCart={userCart[0]} />
+        </>
+    );
+
     return (
-        <h1>hi from my cart!</h1>
+        <div className="cart-page">
+            <h1 className="page-title">My Cart Items</h1>
+            {userCart.length != 0 ? cartItems : noCartItems}
+        </div>
     );
 }

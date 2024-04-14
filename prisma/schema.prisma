@@ -32,8 +32,14 @@ model Item {
   category    Category @relation(fields: [categoryId], references: [id])
   price       Decimal  @db.Money
   description String
-  imgSrc      String?   
+  imgSrc      String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   categoryId  Int
+  cart        Cart[]
+}
+
+model Cart {
+  user_id    String @id
+  items      Item[]
 }
