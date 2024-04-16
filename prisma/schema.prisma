@@ -37,9 +37,19 @@ model Item {
   updatedAt   DateTime @updatedAt
   categoryId  Int
   cart        Cart[]
+  cartItems   CartItem[]
 }
 
 model Cart {
   user_id    String @id
   items      Item[]
+  cartItems  CartItem[] 
+}
+
+model CartItem {
+  id  Int @default(autoincrement()) @id
+  cartId  String
+  cart  Cart @relation(fields: [cartId], references: [user_id])
+  items Item[]
+  quantity Int
 }
