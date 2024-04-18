@@ -11,10 +11,14 @@ export default async function MyCart() {
             user_id: userId?.toString()
         },
         include: {
-            items: true
+            cartItems: {
+                include: {
+                    item: true
+                }
+            }
         }
     })
-
+    
     const noCartItems = (
         <p className="signed-out-msg">No Items in Cart</p>
     );

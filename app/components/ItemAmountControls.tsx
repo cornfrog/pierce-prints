@@ -20,7 +20,7 @@ export default function ItemAmountControls({itemAmount, setAmount}: props){
     return (
         <div className="item-controls">
             <button className="control-btn" onClick={decrease} disabled={itemAmount <= 1}>◄</button>
-            <input className="item-amount" type="text" defaultValue={itemAmount}/>
+            <input className="item-amount" type="text" defaultValue={itemAmount} readOnly/>
             <button className="control-btn" onClick={increase}>►</button>
         </div>
     );

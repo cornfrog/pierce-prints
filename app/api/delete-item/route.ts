@@ -5,18 +5,11 @@ export async function DELETE(request: Request) {
     const userId = data.userId;
     const itemId = data.itemId;
 
-    const removeItemFromCart = await prisma.cart.update({
+    const deleteCartItem = await prisma.cartItem.delete({
         where: {
-            user_id: userId
-        },
-        data: {
-            items: {
-                disconnect: {
-                    id: itemId
-                }
-            }
+            id: itemId
         }
-    });
+    })
 
     const countOfItems = await prisma.cart.findUnique({
         where: {
@@ -25,13 +18,13 @@ export async function DELETE(request: Request) {
         select: {
             _count: {
                 select: {
-                    items: true
+                    cartItems: true
                 }
             }
         }
     })
 
-    const numberOfItems = countOfItems!._count.items;
+    const numberOfItems = countOfItems!._count.cartItems;
     if(numberOfItems < 1) {
         await prisma.cart.delete({
             where:{

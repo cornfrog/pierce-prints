@@ -4,13 +4,13 @@ import CartItem from "./CartItem";
 type UserCart = {
     userCart: {
         user_id: string;
-        items: any[]
+        cartItems: any[]
     }
 }
 
 export default function UserCart({ userCart }: UserCart) {
-        const cartTiles = userCart.items.map((item) => {
-        return <CartItem item={item} userId={userCart.user_id} key={item.id}/>
+    const cartTiles = userCart.cartItems.map((cartItem) => {
+        return <CartItem item={cartItem} userId={userCart.user_id} key={cartItem.id} />
     })
 
     return (
