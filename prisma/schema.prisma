@@ -27,29 +27,28 @@ model Message {
 }
 
 model Item {
-  id          Int      @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   name        String
-  category    Category @relation(fields: [categoryId], references: [id])
-  price       Decimal  @db.Money
+  category    Category   @relation(fields: [categoryId], references: [id])
+  price       Decimal    @db.Money
   description String
   imgSrc      String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
   categoryId  Int
-  cart        Cart[]
   cartItems   CartItem[]
 }
 
 model Cart {
-  user_id    String @id
-  items      Item[]
-  cartItems  CartItem[] 
+  user_id   String     @id
+  cartItems CartItem[]
 }
 
 model CartItem {
-  id  Int @default(autoincrement()) @id
-  cartId  String
-  cart  Cart @relation(fields: [cartId], references: [user_id])
-  items Item[]
+  id       Int    @id @default(autoincrement())
+  cartId   String
+  cart     Cart   @relation(fields: [cartId], references: [user_id])
+  itemId   Int
+  item     Item   @relation(fields: [itemId], references: [id])
   quantity Int
 }

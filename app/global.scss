@@ -40,7 +40,7 @@ body {
             font-size: 2.5rem;
         }
     }
-    
+
     .sign-in {
         border: none;
         background-color: transparent;
@@ -62,6 +62,7 @@ body {
         justify-content: center;
         align-items: center;
         gap: 2rem;
+
         button {
             border: none;
             background-color: transparent;
@@ -71,6 +72,7 @@ body {
             color: rgb(130, 130, 130);
             transition: font-size .35s ease-in-out;
         }
+
         button:hover {
             cursor: pointer;
             color: black;
@@ -245,6 +247,7 @@ body {
     width: 50%;
     border: .5rem solid black;
     border-radius: 1rem;
+
     p {
         width: 80%;
     }
@@ -257,6 +260,7 @@ body {
     color: white;
     font-size: 1.15rem;
     border-top: .25rem solid rgb(64, 64, 64);
+
     h1 {
         margin: 0;
         padding: .25rem 0;
@@ -274,6 +278,7 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
+
     .item-tile {
         margin: 1rem auto;
         padding: .5rem 1rem;
@@ -284,16 +289,19 @@ body {
         border: .25rem solid black;
         border-radius: 1rem;
         width: fit-content;
-        .item-picture { 
+
+        .item-picture {
             height: 200px;
             width: 200px;
             border-radius: 1rem;
         }
-        .item-name{
+
+        .item-name {
             margin-bottom: 0;
             font-size: 1.5rem;
         }
-        .item-price{
+
+        .item-price {
             margin-top: .5rem;
             font-size: 1.25rem;
         }
@@ -301,6 +309,7 @@ body {
 
     .item-tile:hover {
         cursor: pointer;
+
         .item-name {
             text-decoration: underline;
         }
@@ -313,34 +322,42 @@ body {
         font-size: 2rem;
         margin-left: 5rem;
     }
+
     .item-name {
         font-size: 2.5rem;
         text-align: center;
         text-decoration: underline;
     }
+
     .item-details {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 2rem;
         font-size: 1.5rem;
+
         .item-picture {
             height: 600px;
             width: 400px;
             border: .25rem solid gray;
             border-radius: 1rem;
         }
+
         .item-price-and-desc {
             width: fit-content;
+
             .item-price {
                 text-align: center;
             }
+
             .item-description {
                 width: 35vw;
             }
+
             .signed-out {
                 text-align: center;
             }
+
             .add-to-cart {
                 display: block;
                 margin: 0 auto;
@@ -352,10 +369,40 @@ body {
                 color: white;
                 transition: background-color .25s ease-in-out;
             }
+
             .add-to-cart:hover {
                 background-color: gray;
                 color: black;
                 cursor: pointer;
+            }
+
+            .item-controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1rem;
+                gap: .5rem;
+
+                .item-amount {
+                    background-color: transparent;
+                    border: none;
+                    text-align: center;
+                    width: 1vw;
+                    font-size: 2rem;
+                }
+
+                .control-btn {
+                    background-color: black;
+                    color: white;
+                    padding: 0 1rem;
+                    border-radius: 2rem;
+                    font-size: 2rem;
+                }
+
+                .control-btn:disabled {
+                    background-color: gray;
+                    color: black;
+                }
             }
         }
 
@@ -388,6 +435,7 @@ body {
         width: 25vw;
         padding: 1rem;
         border-radius: 1rem;
+
         .item-img {
             height: 200px;
             width: 200px;
@@ -399,6 +447,7 @@ body {
         background-color: transparent;
         border: none;
     }
+
     .remove-item-btn:hover {
         cursor: pointer;
     }

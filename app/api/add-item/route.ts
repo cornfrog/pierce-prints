@@ -4,27 +4,35 @@ export async function POST(request: Request) {
     const requestData = await request.json()
     const userId = requestData.userId;
     const itemId = requestData.itemId;
+    const itemAmount = requestData.itemAmount;
 
-    const result = await prisma.cart.upsert({
-        where: {user_id: userId},
-        update: {
-            items:{
-                connect:{
-                    id: parseInt(itemId)
-                }
-            }
+    const userCartItems = await prisma.cartItem.findFirst({
+        where: {
+            cartId: userId,
+            itemId: parseInt(itemId)
         },
-        create: {
+        include: {
+            item: true
+        }
+    })
+
+    console.log(userCartItems)
+
+    const cart = await prisma.cart.upsert({
+        where: { user_id: userId },
+        update: {},
+        create: { 
             user_id: userId,
-            items: {
-                connect: {
-                    id: parseInt(itemId)
+            cartItems: {
+                create: {
+                    itemId: parseInt(itemId),
+                    quantity: parseInt(itemAmount),
                 }
             }
         }
     })
 
-    console.log(result);
+    console.log(cart)
 
     return Response.json({});
 }
