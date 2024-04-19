@@ -10,7 +10,8 @@ export default authMiddleware({
     "/api/message",
     "/categories/:category",
     "/api/categories/:category",
-    "/categories/:category/:item"
+    "/categories/:category/:item",
+    "/api/remove-account"
   ]
 });
 

@@ -15,6 +15,7 @@ export function serializeClerkUser(clerkUserData: any) {
     clerkUser.firstName = clerkUserData.firstName;
     clerkUser.lastName = clerkUserData.lastName;
     clerkUser.email = clerkUserData.emailAddresses[0].emailAddress;
+    clerkUser.createdAt = clerkUserData.createdAt;
 
     return clerkUser;
 }
