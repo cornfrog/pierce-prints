@@ -34,7 +34,7 @@ export default async function OrderPlaced({ params }: any) {
     return (
         <div className="order-details">
             <h1 className="order-header">Thank you for placing your order.</h1>
-            <p className="order-total">Total: ${totalAsFloat}</p>
+            <p className="order-total">Total: ${totalAsFloat.toString()}</p>
             <div className="order-receipt">
                 <p className="header">Quantity</p>
                 <p className="header">Name</p>
