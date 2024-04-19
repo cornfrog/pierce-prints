@@ -1,30 +1,51 @@
 import prisma from "@/lib/prisma";
 
 export async function POST(request: Request) {
+
     const requestData = await request.json()
     const userId = requestData.userId;
     const itemId = requestData.itemId;
+    const itemAmount = requestData.itemAmount;
 
-    const result = await prisma.cart.upsert({
-        where: {user_id: userId},
-        update: {
-            items:{
-                connect:{
-                    id: parseInt(itemId)
-                }
-            }
-        },
-        create: {
-            user_id: userId,
-            items: {
-                connect: {
-                    id: parseInt(itemId)
-                }
-            }
+    const userCartExists = await prisma.cart.findFirst({
+        where:{
+            user_id: userId
         }
-    })
+    });
 
-    console.log(result);
+    if(!userCartExists) {
+        await prisma.cart.create({
+            data:{
+                user_id: userId
+            }
+        })
+    }
+
+    const itemInUserCart = await prisma.cartItem.findFirst({
+        where: {
+            cartId: userId,
+            itemId: parseInt(itemId)
+        }
+    });
+
+    if(!itemInUserCart){
+        await prisma.cartItem.create({
+            data: {
+                cartId: userId,
+                itemId: parseInt(itemId),
+                quantity: parseInt(itemAmount)
+            }
+        });
+    } else {
+        await prisma.cartItem.update({
+            where: {
+                id: itemInUserCart.id
+            },
+            data: {
+                quantity: itemInUserCart.quantity + parseInt(itemAmount)
+            }
+        });
+    }
 
     return Response.json({});
 }
