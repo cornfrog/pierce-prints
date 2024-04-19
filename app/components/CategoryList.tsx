@@ -1,22 +1,10 @@
-"use client"
-
-import { useEffect, useState } from "react";
 import CategoryTile from "./CategoryTile";
 import { Category } from "../types";
+import prisma from "@/lib/prisma";
 
-export default function CategoryList() {
+export default async function CategoryList() {
 
-    const [categoryList, setCatagories] = useState<Category[]>([]);
-
-    async function fetchCatagories() {
-        const response = await fetch("/api/categories/");
-        const categories = await response.json();
-        setCatagories(categories.categories);
-    }
-
-    useEffect(() => {
-        fetchCatagories();
-    }, [categoryList]);
+    const categoryList = await prisma.category.findMany();
 
     const categoryTiles = categoryList.map((category) => {
         return <li key={category.id} className="category-tile"><CategoryTile category={category}/></li>
