@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs";
 import prisma from "@/lib/prisma";
 import UserCart from "../components/UserCart";
+import PlaceOrder from "../components/PlaceOrder";
 
 export default async function MyCart() {
 
@@ -26,6 +27,7 @@ export default async function MyCart() {
     const cartItems = (
         <>
             <UserCart userCart={userCart[0]} />
+            <PlaceOrder order={userCart[0]}/>
         </>
     );
 

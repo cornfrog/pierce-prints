@@ -55,3 +55,20 @@ export function serializeItemData(itemData: any) {
     item.price = itemData.price
     return item
 }
+
+export function serializeOrderData(userCart: any[], total: number){
+    let serializedOrder: any = {};
+    let cart: any = [];
+    serializedOrder.total = total;
+    userCart.forEach((item) => {
+        const cartItem: any = {};
+        serializedOrder.id = item.cartId;
+        cartItem.quantity = item.quantity;
+        cartItem.itemId = item.itemId;
+        cartItem.name = item.item.name;
+        cartItem.price = parseFloat(item.item.price);
+        cart.push(cartItem);
+    })
+    serializedOrder.items = cart;
+    console.log(serializedOrder);
+}
