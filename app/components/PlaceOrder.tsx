@@ -19,7 +19,9 @@ export default function PlaceOrder({ order }: any) {
                 "Content-Type": "application/json",
             }),
             body: JSON.stringify({ cart: cartItems, total: displayedTotal })
-        })
+        });
+        const responseData = await response.json();
+        return window.location.href = `/order-placed/${responseData.placeOrder.id}`;
     }
 
     return (

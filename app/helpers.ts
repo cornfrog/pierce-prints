@@ -65,10 +65,8 @@ export function serializeOrderData(userCart: any[], total: number){
         serializedOrder.id = item.cartId;
         cartItem.quantity = item.quantity;
         cartItem.itemId = item.itemId;
-        cartItem.name = item.item.name;
-        cartItem.price = parseFloat(item.item.price);
         cart.push(cartItem);
     })
     serializedOrder.items = cart;
-    console.log(serializedOrder);
+    return serializedOrder;
 }

@@ -469,3 +469,36 @@ body {
         }
     }
 }
+
+.order-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .order-header {
+        font-size: 3rem;
+        text-decoration: underline;
+    }
+
+    .order-total {
+        font-size: 2rem;
+    }
+
+    .order-receipt {
+        width: 50%;
+        border: .25rem solid black;
+        border-radius: 1rem;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        text-align: center;
+        font-size: 2rem;
+
+        .header {
+            text-decoration: underline;
+            padding-bottom: 1rem;
+            margin-bottom: 0;
+            border-bottom: .25rem solid black;
+        }
+    }
+}
