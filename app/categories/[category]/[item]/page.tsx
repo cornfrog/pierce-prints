@@ -43,6 +43,7 @@ export default async function ItemPage({ params }: any) {
                         <AddItemToCart
                             userId={userId.toString()}
                             itemId={params.item}
+                            itemName={itemDetails.name}
                          /> :
                         signedOutItems
                     }
