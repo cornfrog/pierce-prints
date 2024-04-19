@@ -5,18 +5,25 @@ import DeleteAccount from "../components/DeleteAccount";
 
 
 export default async function ProfileSettings() {
+
+    let serializedUser: any;
+    let createdAtDate: any;
     const { userId, getToken } = auth();
-    let currentUserID;
-    if (userId) {
-        currentUserID = userId;
-    } else {
-        currentUserID = "";
+    try {
+        let currentUserID;
+        if (userId) {
+            currentUserID = userId;
+        } else {
+            currentUserID = "";
+        }
+        const user = await clerkClient.users.getUser(currentUserID);
+
+        serializedUser = serializeClerkUser(user);
+
+        createdAtDate = new Date(serializedUser.createdAt);
+    } catch (error) {
+        console.log(error)
     }
-    const user = await clerkClient.users.getUser(currentUserID);
-
-    const serializedUser = serializeClerkUser(user);
-
-    const createdAtDate = new Date(serializedUser.createdAt);
 
     return (
         <div className="account-settings">
@@ -25,7 +32,7 @@ export default async function ProfileSettings() {
             <p>Last Name: {serializedUser.lastName}</p>
             <p>Email: {serializedUser.email}</p>
             <p>Created: {createdAtDate.toLocaleDateString()}</p>
-            <DeleteAccount userId={userId}/>
+            <DeleteAccount userId={userId} />
         </div>
     );
 }
