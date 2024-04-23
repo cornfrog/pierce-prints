@@ -32,12 +32,11 @@ body {
 
         &__link {
             color: rgb(130, 130, 130);
-            transition: color, font-size .35s ease-in-out;
+            transition: color .35s ease-in-out;
         }
 
         &__link:hover {
             color: black;
-            font-size: 2.5rem;
         }
     }
 
@@ -48,20 +47,43 @@ body {
         font-size: 2rem;
         font-family: 'REM', sans-serif;
         color: rgb(130, 130, 130);
-        transition: font-size .35s ease-in-out;
+        transition: color .35s ease-in-out;
     }
 
     .sign-in:hover {
         cursor: pointer;
         color: black;
-        font-size: 2.35rem;
+    }
+
+    .my-account-btn {
+        border: none;
+        background-color: transparent;
+        text-decoration: underline;
+        font-size: 2rem;
+        font-family: 'REM', sans-serif;
+        color: rgb(130, 130, 130);
+        transition: color .35s ease-in-out;
+    }
+
+    .my-account-btn:hover {
+        cursor: pointer;
+        color: black;
     }
 
     .logged-in-buttons {
+        position: absolute;
+        top: 15%;
+        right: 0;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 1rem 0;
         gap: 2rem;
+        border: .25rem solid black;
+        width: 25vw;
+        background-color: white;
+        transition: width .5s ease-in-out;
 
         button {
             border: none;
@@ -70,13 +92,22 @@ body {
             font-size: 2rem;
             font-family: 'REM', sans-serif;
             color: rgb(130, 130, 130);
-            transition: font-size .35s ease-in-out;
+            transition: color .35s ease-in-out;
         }
 
         button:hover {
             cursor: pointer;
             color: black;
-            font-size: 2.35rem;
+        }
+    }
+
+    .logged-in-buttons-hide {
+        position: absolute;
+        top: 15%;
+        right: 0;
+        width: 0rem;
+        button {
+            display: none;
         }
     }
 }
@@ -129,13 +160,12 @@ body {
     display: grid;
     grid-template-columns: auto auto;
     text-align: end;
-
+    padding: 0;
+    justify-items: center;
     .category-tile {
-        margin-left: auto;
-        margin-right: auto;
         margin-bottom: 1rem;
         padding: 1rem 2rem;
-        width: 50%;
+        width: 75%;
         border: .25rem solid black;
         border-radius: 1rem;
         font-size: 2.25rem;
@@ -486,7 +516,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     .order-header {
         font-size: 3rem;
         text-decoration: underline;
@@ -526,7 +556,7 @@ body {
         font-size: 1.75rem;
     }
 
-    .order-history{
+    .order-history {
         padding: 0 5rem;
         height: 80vh;
         overflow-y: scroll;
@@ -546,7 +576,7 @@ body {
             overflow-y: scroll;
             border: .25rem solid black;
             border-radius: 1rem;
-            
+
             .order-header {
                 display: flex;
                 justify-content: space-evenly;
@@ -554,12 +584,12 @@ body {
                 font-size: 2rem;
                 background-color: black;
                 color: white;
-                
+
                 p {
                     margin: .5rem;
                 }
             }
-            
+
             .ordered-items {
                 margin: 0 auto;
                 display: flex;
@@ -568,12 +598,12 @@ body {
                 width: 90%;
                 overflow-x: scroll;
                 gap: 1rem;
-                
-                p{
+
+                p {
                     margin-top: 0;
                     margin-bottom: 0;
                 }
-                
+
                 .item {
                     display: flex;
                     flex-direction: column;
@@ -584,17 +614,17 @@ body {
                     border-radius: 1rem;
                     margin-bottom: 1rem;
                     padding: 1rem;
-                    
+
                     .item-img {
                         height: 150px;
                         width: 150px;
-                        border: .25rem  solid gray;
+                        border: .25rem solid gray;
                         border-radius: 1rem;
                     }
-                    
+
                 }
             }
-            
+
         }
     }
 }
@@ -604,8 +634,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    p { 
+
+    p {
         font-size: 1.5rem;
     }
 
@@ -617,5 +647,272 @@ body {
         border: .25rem solid darkred;
         border-radius: 2rem;
         cursor: pointer;
+    }
+}
+
+
+
+@media (max-width: 576px) {
+    /* CSS rules for extra small devices */
+    .top-bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 1rem;
+        .site-header {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            width: 80%;
+        }
+        .navbar {
+            display: none;
+        }
+        .mobile-navbar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            .mobile-menu-btn {
+                font-size: 1.5rem;
+                margin-bottom: .25rem;
+                border: none;
+                background-color: gray;
+                color: white;
+                border-radius: 1rem;
+                padding: .5rem 1rem;
+            }
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: .25rem;
+                .my-account-btn {
+                    font-size: 1.5rem;
+                }   
+                .sign-in {
+                    font-size: 1.5rem;
+                }
+                .logged-in-buttons {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    position: relative;
+                    height: 5rem;
+                    font-size: 1.5rem;
+                    border: none;
+                    gap: .25rem;
+                    background-color: transparent;
+                    transition: height .5s ease-in-out;
+                    button {
+                        font-size: 1.5rem;
+                    }
+                }
+                .logged-in-buttons-hide {
+                    width: 100%;
+                    height: 0rem;
+                    border: none;
+                    background-color: transparent;
+                    transition: height 1s ease-in-out;
+                    button {
+                        display: none;
+                    }
+                }
+            }
+            .mobile-menu-hide {
+                display: none;
+                height: 0;
+                transition: height .25s ease-in-out;
+                button {
+                    display: none;
+                }
+            }
+        }
+    }
+    .welcome-banner {
+        &__text {
+            width: 60%;
+            font-size: 1.75rem;
+            text-align: center;
+        }
+    }
+    .category-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .category-tile {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    }
+    .separator-container {
+        &__bar {
+            border: .15rem solid black;
+            width: 10%;
+        }
+    
+        &__text {
+            font-size: 3.5rem;
+        }
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    /* CSS rules for small devices */
+    .top-bar {
+        .site-header {
+            margin-bottom: 0rem;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .navbar {
+            font-size: 1.25rem;
+        }
+        .sign-in{
+            font-size: 1.25rem;
+        }
+        .my-account-btn {
+            font-size: 1.25rem;
+        }
+        .logged-in-buttons{
+            top: 32%;
+            button {
+                font-size: 1.25rem;
+            }
+        }
+        .mobile-navbar {
+            display: none;
+        }
+    }
+    .category-list {
+        .category-tile {
+            font-size: 1.25rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .welcome-banner {
+        &__text {
+            width: 60%;
+            font-size: 1.75rem;
+            text-align: center;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    /* CSS rules for medium devices */
+    .top-bar {
+        .site-header {
+            margin-bottom: 0rem;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .navbar {
+            font-size: 1.5rem;
+        }
+        .sign-in{
+            font-size: 1.5rem;
+        }
+        .my-account-btn {
+            font-size: 1.5rem;
+        }
+        .logged-in-buttons{
+            top: 32%;
+            button {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .mobile-navbar {
+        display: none;
+    }
+    .category-list {
+        .category-tile {
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    /* CSS rules for large devices */
+    .top-bar {
+        .site-header {
+            margin-bottom: 0rem;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .logged-in-buttons{
+            top: 32%;
+        }
+        .mobile-navbar {
+            display: none;
+        }
+    }
+    .category-list {
+        .category-tile {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+    /* CSS rules for extra large devices */
+    .top-bar {
+        .site-header {
+            margin-bottom: 0rem;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .logged-in-buttons{
+            top: 32%;
+        }
+        .mobile-navbar {
+            display: none;
+        }
+    }
+    .category-list {
+        .category-tile {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+
+@media (min-width: 1600px) {
+    /* CSS rules for extra large devices */
+    .top-bar{
+
+        .mobile-navbar {
+            display: none;
+        }
     }
 }
