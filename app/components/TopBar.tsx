@@ -1,39 +1,28 @@
 "use client"
 
-import { SignOutButton, UserButton, SignInButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
+import SignedInLinks from "./SignedInLinks";
+import { useState } from "react";
 
 type LoggedInUser = {
     userID: string | null
 }
 
 export default function TopBar({ userID }: LoggedInUser) {
+
+    const [menuDisplayed, setMenuStatus] = useState(false);
+
     const goToHome = () => {
         return window.location.href = "/"
     };
 
-    function goToProfile() {
-        return window.location.href = "/my-profile";
-    }
-
-    function goToCart() {
-        return window.location.href = "/my-cart";
-    }
-
-    const router = useRouter();
-    function handleLogOut() {
-        router.push("/");
+    function updateMenu() {
+        setMenuStatus(!menuDisplayed);
     }
 
     const signedInItems = (
-        <div className="logged-in-buttons">
-            <button className="profile-button" onClick={goToProfile}>My Profile</button>
-            <button className="cart-button" onClick={goToCart}>My Cart</button>
-            <SignOutButton signOutCallback={handleLogOut}>
-                <button className="sign-out">Log Out</button>
-            </SignOutButton>
-        </div>
+        <SignedInLinks />
     );
 
 
@@ -51,8 +40,18 @@ export default function TopBar({ userID }: LoggedInUser) {
                 <Link href="/categories" className="navbar__link">Categories</Link>
                 <Link href="/contact" className="navbar__link">Contact</Link>
                 <Link href="/about" className="navbar__link">About</Link>
+                {userID ? signedInItems : signedOutButton}
             </div>
-            {userID ? signedInItems : signedOutButton}
+            <div className="mobile-navbar">
+                <button className="mobile-menu-btn" onClick={updateMenu}>Menu</button>
+                <div className={menuDisplayed ? "mobile-menu" : "mobile-menu-hide"}>
+                    <Link href="/" className="navbar__link">Home</Link>
+                    <Link href="/categories" className="navbar__link">Categories</Link>
+                    <Link href="/contact" className="navbar__link">Contact</Link>
+                    <Link href="/about" className="navbar__link">About</Link>
+                    {userID ? signedInItems : signedOutButton}
+                </div>
+            </div>
         </div>
     );
 }
