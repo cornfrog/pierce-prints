@@ -946,6 +946,19 @@ body {
             font-size: 2.5rem;
         }
     }
+
+    .order-details {
+        .order-header {
+            font-size: 1.5rem;
+        }
+        .order-total {
+            font-size: 1.25rem;
+        }
+        .order-receipt {
+            width: 90%;
+            font-size: 1.25rem;
+        }
+    }
     
 }
 
